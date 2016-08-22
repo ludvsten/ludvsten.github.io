@@ -2,9 +2,198 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Easy S_ Library</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
   </head>
   <body>
-    <h1>hello</h1>
+    <header>
+      <button class="btn nav-btn fa fa-bars fa-3x"></button>
+      <button class="btn search fa fa-search fa-3x"></button>
+    </header>
+    <main class="container">
+      <div class="row">
+
+        <div class="col lg 12 title well well-lg" id="title"><h1>Easy  S_ javascript  Library</h1></div>
+
+        <div class="col lg 12 box" id="append">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.append() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>append element to Dom</p></blockquote>
+              <code>
+                S_('.class').append(easy.create('h1', {'text': 'Hello World'}));
+              </code>
+          </div>
+        </div>
+      </div>
+
+        <div class="col lg 12 box" id="aClass">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.aClass() <span class="label label-danger pull-right">Dom</span> </h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>Add Classes to Element</p></blockquote>
+              <code>
+                S_('.class').aClass('added-class');
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="rmClass">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.rmClass() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>Remove Classes from Element</p></blockquote>
+              <code>
+                S_('.class')rmClass('removed-class');
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="css">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.css() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>modify style on selected element</p></blockquote>
+              <code>
+                S_('.class').css('background', '#222');
+              </code>
+              <blockquote >
+                <strong>object as argument</strong>
+                <p>you can define more than one style by pass object as argument</p>
+              </blockquote>
+              <code>
+                  S_('.class').css({'background': '#222', 'border': '2px solid white'});
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="html">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.html() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>grab the html from element</p></blockquote>
+              <code>
+                S_('.class').html();
+              </code>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="text">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.text() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>grab the text from element or set text </p></blockquote>
+              <code>
+                S_('.class').text();
+              </code>
+              <code>
+                  S_('.class').text('added text');
+              </code>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="attr">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.attr() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>set attribute on element</p></blockquote>
+              <code>
+                S_('.class').attr({'value': 'text'});
+              </code>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="rm">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.rm() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>Removes element from dom</p></blockquote>
+              <code>
+                S_('.class').rm();
+              </code>
+            </div>
+          </div>
+        </div>
+
+        <div class="col lg 12 box" id="on">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.on() <span class="label label-danger pull-right">Dom</span></h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>Bind an event handler to  javascript events like "click"</p></blockquote>
+              <code>
+                S_('.btn').on('click', handler);
+              </code>
+          </div>
+        </div>
+      </div>
+
+      <div class="col lg 12 box" id="off">
+        <div class="panel panel-default">
+          <div class="panel-heading"><h3>.on() <span class="label label-danger pull-right">Dom</span></h3></div>
+          <div class="panel-body">
+            <blockquote>
+            <strong>Description:</strong> <p>remove  event handler from  javascript events like "click"</p></blockquote>
+            <code>
+              S_('.btn').off('click', handler);
+            </code>
+        </div>
+      </div>
+    </div>
+
+    <div class="col lg 12 box" id="filterJSON">
+      <div class="panel panel-default">
+        <div class="panel-heading"><h3>.filterJSON() <span class="label label-primary pull-right">Json</span></h3></div>
+        <div class="panel-body">
+          <blockquote>
+          <strong>Description:</strong> <p>filter keys in Json Object</p></blockquote>
+          <code>
+            easy.filterJSON(json, 'Title', 'Genre', 'Runtime');
+          </code>
+      </div>
+    </div>
+  </div>
+  <div class="col lg 12 box" id="xCall">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>.Xcall() <span class="label label-info pull-right">ajax</span></h3></div>
+      <div class="panel-body">
+        <blockquote>
+        <strong>Description:</strong> <p>send Get and Post Request</p></blockquote>
+        <code>
+          easy.Xcall('GET', 'http://www.someurl.com/', callback);
+        </code>
+    </div>
+  </div>
+  </div>
+    </main>
+    <footer>
+    
+      <ul class="social">
+          <a href="mailto:1udvst3n@gmail.com" title="gmail"><i class="fa fa-envelope-o fa-2x btn btn-primary pull-left"></i></a>
+        <a href="https://github.com/ludvsten/" title="github"><i class="btn btn-primary fa fa-github fa-2x"></i></a>
+        <a href="#title"><i class="fa fa-home btn btn-primary fa-2x pull-right"></i></a>
+      </ul>
+
+    </footer>
   <script src="S_easy.js"></script>
   </body>
 </html>
