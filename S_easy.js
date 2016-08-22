@@ -114,10 +114,10 @@ window.easy = (function () {
     Easy.prototype.prepend = function (els) {
 
         return this.forEach(function (parEl, i) {
-           
+
             for (var j = els.length - 1; j > -1; j--) {
                 childEl = (i > 0) ? els[j].cloneNode(true) : els[j];
-               
+
                 parEl.insertBefore(childEl, parEl, parEl.firstChild);
             }
         });
@@ -264,20 +264,3 @@ window.easy = (function () {
     return easy;
 }());
 var S_ = new Object(easy.elem);
-
-S_('.send').on('click', doit);
-
-function doit() {
-    S_('#app').css({
-        'background': 'red',
-        'border': '4px solid blue'
-    });
-    S_('#app').append(
-        easy.create('button', {
-            'className': 'app',
-            'text': 'send'
-        })
-
-    );
-
-}
