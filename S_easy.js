@@ -127,6 +127,21 @@ window.easy = (function () {
             return el.parentNode.removeChild(el);
         });
     };
+
+    Easy.prototype.keyUp = function (key, evt) {
+       //keyup need fixing
+       if(key == 'Number') {
+        this.on('keyup', function(event){
+          if(event.keyCode == key) {
+            return evt();
+          }
+        });
+    }
+      else {
+        this.on('keydown', evt);
+      }
+    };
+
     Easy.prototype.on = (function () {
         if (document.addEventListener) {
             return function (evt, fn) {
@@ -184,30 +199,7 @@ window.easy = (function () {
             return JSON.parse(result);
         }
     };
-    Easy.prototype.xCall = function (method, url, callback, spinner) {
-        var result, delay = delay || 300,
-            xc = new XMLHttpRequest();
 
-        xc.onreadystatechange = function () {
-            if (xc.readyState == 4 && xc.status == 200) {
-                setTimeout(function () {
-                    result = xc.responseText;
-                    if (easy.objlike(result)) {
-                        return callback(JSON.parse(result));
-                    } else {
-                        return result;
-                    }
-                }, delay);
-            }
-            if (xc.readyState == 2) {
-                if (typeof spinner == 'function') {
-                    return spinner;
-                }
-            }
-        };
-        xc.open(method, url, true);
-        xc.send();
-    };
     // objlike check string is object like //
     Easy.prototype.objlike = function (o) {
         var re = /{(.*)}/;
@@ -258,7 +250,31 @@ window.easy = (function () {
                 }
             }
             return el;
-        }
+        },
+        xCall: function (method, url, callback, spinner) {
+          var result, delay = delay || 300,
+              xc = new XMLHttpRequest();
+
+          xc.onreadystatechange = function () {
+              if (xc.readyState == 4 && xc.status == 200) {
+                  setTimeout(function () {
+                      result = xc.responseText;
+                      if (typeof result == 'string') {
+                          return callback(JSON.parse(result));
+                      } else {
+                          return result;
+                      }
+                  }, delay);
+              }
+              if (xc.readyState == 2) {
+                  if (typeof spinner == 'function') {
+                      return spinner;
+                  }
+              }
+          };
+          xc.open(method, url, true);
+          xc.send();
+      }
     };
 
     return easy;
