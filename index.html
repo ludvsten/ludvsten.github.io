@@ -2,15 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Easy S_ Library</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/main.min.css">
+
   </head>
   <body>
+    <div class="sh"></div>
     <header>
-      <button class="btn nav-btn fa fa-bars fa-3x"></button>
-      <button class="btn search fa fa-search fa-3x"></button>
+      <button class="btn nav-btn fa fa-bars fa-2x"></button>
+      <button class="btn search fa fa-search fa-2x"></button>
     </header>
     <main class="container">
       <div class="row">
@@ -172,9 +175,10 @@
       </div>
     </div>
   </div>
+
   <div class="col lg 12 box" id="xCall">
     <div class="panel panel-default">
-      <div class="panel-heading"><h3>.Xcall() <span class="label label-info pull-right">ajax</span></h3></div>
+      <div class="panel-heading"><h3>easy.Xcall() <span class="label label-info pull-right">ajax</span></h3></div>
       <div class="panel-body">
         <blockquote>
         <strong>Description:</strong> <p>send Get and Post Request</p></blockquote>
@@ -184,9 +188,22 @@
     </div>
   </div>
   </div>
+
+  <div class="col lg 12 box" id="keyUp">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>.keyUp() <span class="label label-primary pull-right">dom</span></h3></div>
+      <div class="panel-body">
+        <blockquote>
+        <strong>Description:</strong> <p> Bind an event handler to the "keyup" JavaScript event, or trigger that event on an element.</p></blockquote>
+        <code>
+            S_('input').keyUp(func, 13);
+        </code>
+    </div>
+  </div>
+  </div>
     </main>
-    <footer>
-    
+    <footer class="container">
+
       <ul class="social">
           <a href="mailto:1udvst3n@gmail.com" title="gmail"><i class="fa fa-envelope-o fa-2x btn btn-primary pull-left"></i></a>
         <a href="https://github.com/ludvsten/" title="github"><i class="btn btn-primary fa fa-github fa-2x"></i></a>
@@ -195,5 +212,17 @@
 
     </footer>
   <script src="S_easy.js"></script>
+  <script>
+    S_('.search').on('click', even);
+    function even(){
+      S_('.sh').append(easy.create('input', {'placeholder': 'search for', 'className':'sh-input'}));
+      S_('.sh-input').on('click', function(){
+        console.log('changed');
+        var val  = S_('.sh-input').value;
+        window.location('#'+val);
+      });
+    }
+
+  </script>
   </body>
 </html>

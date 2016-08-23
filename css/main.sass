@@ -8,10 +8,8 @@ header
   bottom: 0
   background: #222
   display: block
-  width: 70px
-
+  width: 50px
   @media (max-width: 755px)
-
     top: 0
     bottom: auto
     left: 0
@@ -22,12 +20,27 @@ header
 
   button
     background: transparent
+  .btn
+    padding: 8px 8px !important
 main
 .title
   text-align: center
+.box
+  margin-bottom: 70px
 .panel-default > .panel-heading
   background: #222
+.sh
+  position: fixed
+  top: 0
+  left: 50px
+  right: 0
+  .sh-input
 
+    background: white
+    width: 200px
+    border: none
+    height: 40px
+    z-index: 9999
 .well
   background: #222
   box-shadow: 0px 10px 16px 0px rgba(0, 0, 0, 0.2), 0px 6px 20px 0px rgba(0, 0, 0, 0.19) !important
@@ -44,7 +57,8 @@ footer
   bottom: 0
   left: 0
   right: 0
-  margin-left: 70px
+  margin-left: 0
+  margin-top: 70px
   ul
     margin: 0
     padding: 0
@@ -54,3 +68,5 @@ footer
 @media (max-width: 755px)
   main
     margin-top: 70px
+  footer
+    margin-left: 0
