@@ -57,6 +57,23 @@ window.easy = (function () {
             });
         }
     };
+    Easy.prototype.hasClass = function(selector, rclass){
+      var className = " " + selector + " ", i = 0, l = this.length;
+        for(; i < l; i++) {
+          if(yhis[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf(className) >= 0) {
+            return true;
+          }
+          return false;
+        }
+    };
+    Easy.prototype.tClass = (function (classes) {
+      return this.forEach(function(el){
+        if (Easy.hasClass(classes)) {
+                  Easy.rmClass(classes);
+              } else {
+                  Easy.aClass(classes);
+              }
+    });
     Easy.prototype.aClass = (function (classes) {
         var className = "";
         if (typeof classes !== "string") {
@@ -70,17 +87,13 @@ window.easy = (function () {
             el.className += className;
         });
     });
-    Easy.prototype.rmClass = (function (c) {
-        return this.forEach(function () {
-            var cs = el.className.split(" "),
-                i;
-
-            while ((i = cs.indexOf(c)) > -1) {
-                cs.slice(0, i).concat(cs.slice(++i));
-            }
-            el.className = cs.join(" ")
-        });
-    });
+    Easy.prototype.rmClass = (function (rclass) {
+       var cur;
+       return this.forEach(function (elem) {
+         cur = elem.nodeType === 1 && (elem.className ? (" " + elem.className + " ").replace(rclass, " ") : "");
+         elem.className = cur;
+       });
+   });
     Easy.prototype.css = (function (prop, val) {
         return this.forEach(function (el) {
             if (typeof prop == 'object') {
@@ -202,9 +215,9 @@ window.easy = (function () {
 
     // objlike check string is object like //
     Easy.prototype.objlike = function (o) {
-        var re = /{(.*)}/;
+        var re = "{";
         if (typeof o == 'string') {
-            if (o.match(re)) {
+            if (o.startsWith(re)) {
                 return true;
             } else {
                 return false;
@@ -259,7 +272,7 @@ window.easy = (function () {
               if (xc.readyState == 4 && xc.status == 200) {
                   setTimeout(function () {
                       result = xc.responseText;
-                      if (typeof result == 'string') {
+                      if (Easy.prototype.objlike(result) == true) {
                           return callback(JSON.parse(result));
                       } else {
                           return result;
