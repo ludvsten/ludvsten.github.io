@@ -68,11 +68,12 @@ window.easy = (function () {
     };
     Easy.prototype.tClass = (function (classes) {
       return this.forEach(function(el){
-        if (Easy.hasClass(classes)) {
-                  Easy.rmClass(classes);
+        if (this.hasClass(classes)) {
+                  this.rmClass(classes);
               } else {
-                  Easy.aClass(classes);
+                  this.aClass(classes);
               }
+      });
     });
     Easy.prototype.aClass = (function (classes) {
         var className = "";
