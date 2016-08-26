@@ -213,16 +213,7 @@
     </footer>
   <script src="S_easy.js"></script>
   <script>
-    S_('.search').on('click', even);
-    function even(){
-      S_('.sh').append(easy.create('input', {'placeholder': 'search for', 'className':'sh-input'}));
-      S_('.sh-input').on('click', function(){
-        console.log('changed');
-        var val  = S_('.sh-input').value;
-        window.location('#'+val);
-      });
-    }
-
+  
   </script>
   </body>
 </html>
