@@ -60,7 +60,7 @@ window.easy = (function () {
     Easy.prototype.hasClass = function(selector, rclass){
       var className = " " + selector + " ", i = 0, l = this.length;
         for(; i < l; i++) {
-          if(yhis[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf(className) >= 0) {
+          if(this[i].nodeType === 1 && (" " + this[i].className + " ").replace(rclass, " ").indexOf(className) >= 0) {
             return true;
           }
           return false;
