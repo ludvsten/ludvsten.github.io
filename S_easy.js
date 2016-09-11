@@ -8,6 +8,15 @@ if (typeof Array.prototype.indexOf !== 'function') {
         return -1;
     };
 }
+String.prototype.toDOM=function(){
+  var d=document
+     ,i
+     ,a=d.createElement("div")
+     ,b=d.createDocumentFragment();
+  a.innerHTML=this;
+  while(i=a.firstChild)b.appendChild(i);
+  return b;
+};
 
 window.easy = (function () {
 
@@ -117,12 +126,26 @@ window.easy = (function () {
             });
         }
     };
-    Easy.prototype.append = function (els) {
+    Easy.prototype.popo = function  (msg, time)  {
+      var popo = document.createElement('div');
+      popo.style.cssText = "font-size: 16px; font-family: sans-serif;position: fixed; top: 0;right: 0; text-align: center; background: #222; color: white; padding: 10px 10px";
+      popo.className += 'popo';
+      popo.innerText = msg;
 
+      return this.forEach(function (el) {
+          el.appendChild(popo);
+
+         setTimeout(function(){
+           easy.elem('.popo').fade(3000);
+
+         }, time);
+      });
+  };
+
+    Easy.prototype.append = function (els, attr) {
+        var els = els.toDOM();
         return this.forEach(function (parEl, i) {
-            els.forEach(function (childEl) {
-                parEl.appendChild((i > 0) ? childEl.cloneNode(true) : childEl);
-            });
+            parEl.appendChild(els);
         });
     };
     Easy.prototype.prepend = function (els) {
@@ -214,6 +237,28 @@ window.easy = (function () {
         }
     };
 
+    Easy.prototype.fade = function(time){
+         var time = time || 3000;
+
+        // fade function
+        var keyframe = [
+          // easy keyframe
+            {transform: 'translateY(0px)', opacity: '1'},
+            {transform: 'translateY(-100px)', opacity: '0'}
+        ];
+        var timingopts = {
+            //timing options
+            duration: time,
+            fill: "forwards",
+            iterations: 1 };
+            return this.forEach(function(el){
+              var parEL = el.parentElement;
+             el.animate(keyframe, timingopts);
+               setTimeout(function(){
+                 parEL.removeChild;
+               }, time + 200);
+            });
+    };
     // objlike check string is object like //
     Easy.prototype.objlike = function (o) {
         var re = "{";
@@ -225,7 +270,7 @@ window.easy = (function () {
             }
         }
 
-    }
+    };
     Easy.prototype.ready = function (evt) {
         this.addEventListener('DOMContentLoaded', evt);
     };
