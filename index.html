@@ -27,7 +27,7 @@
               <blockquote>
               <strong>Description:</strong> <p>append element to Dom</p></blockquote>
               <code>
-                S_('.class').append(easy.create('h1', {'text': 'Hello World'}));
+                S_('.class').append('<h1 class="h1">hello world</h1>');
               </code>
           </div>
         </div>
@@ -41,6 +41,18 @@
               <strong>Description:</strong> <p>Add Classes to Element</p></blockquote>
               <code>
                 S_('.class').aClass('added-class');
+              </code>
+            </div>
+          </div>
+        </div>
+        <div class="col lg 12 box" id="tClass">
+          <div class="panel panel-default">
+            <div class="panel-heading"><h3>.tClass() <span class="label label-danger pull-right">Dom</span> </h3></div>
+            <div class="panel-body">
+              <blockquote>
+              <strong>Description:</strong> <p>toggle Classes on Element</p></blockquote>
+              <code>
+                S_('.class').tClass('toggled-class');
               </code>
             </div>
           </div>
@@ -201,6 +213,34 @@
     </div>
   </div>
   </div>
+
+  <div class="col lg 12 box" id="fade">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>.fade() <span class="label label-primary pull-right">dom</span></h3></div>
+      <div class="panel-body">
+        <blockquote>
+        <strong>Description:</strong> <p> fade animation </p></blockquote>
+        <code>
+            S_('.photo').fade(3000, out);
+        </code>
+    </div>
+  </div>
+  </div>
+  <div class="col lg 12 box" id="popo">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3>.popo() <span class="label label-primary pull-right">dom</span></h3></div>
+      <div class="panel-body">
+        <blockquote>
+        <strong>Description:</strong> <p> alert box element</p></blockquote>
+        <code>
+            S_('#submit').on('click', function(){
+              S_(this).popo(5000);
+            });
+        </code>
+    </div>
+  </div>
+  </div>
+
     </main>
     <footer class="container">
 
@@ -213,7 +253,7 @@
     </footer>
   <script src="S_easy.js"></script>
   <script>
-  
+
   </script>
   </body>
 </html>
