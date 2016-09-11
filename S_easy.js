@@ -271,6 +271,27 @@ window.easy = (function () {
         }
 
     };
+    Easy.prototype.goffset = function(){
+       return {
+        top: this[0].offsetTop,
+        left: this[0].offsetLeft,
+        right: this[0].offsetRight,
+        bottom: this[0].offsetBottom
+       }
+    };
+    Easy.prototype.goTo = function(scrollDuration) {
+      var el = this[0],
+      yPos = el.getClientRects()[0].top,
+      yScroll = window.scrollY;
+      var intervall = setInterval(function(){
+        yScroll +=10;
+          if(yPos != yScroll) {
+            window.scroll(0, yScroll);
+          } else {
+            clearInterval(interval);
+          }
+      },15);
+    };
     Easy.prototype.ready = function (evt) {
         this.addEventListener('DOMContentLoaded', evt);
     };
